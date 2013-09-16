@@ -8,6 +8,7 @@ learn something which is easy to forget about ubuntu
 ##fdisk
 
 <pre>
+<code>
 wanbo@wanbo-Rev-1-0:~$ fdisk /dev/sda
 fdisk: unable to open /dev/sda: Permission denied
 wanbo@wanbo-Rev-1-0:~$ sudo fdisk /dev/sda
@@ -49,16 +50,11 @@ Disk identifier: 0xad250a1f
 /dev/sda7       266258432   271892479     2817024   82  Linux swap / Solaris
 
 Partition table entries are not in disk order
+</code>
+</pre>
+
+##root 登陆设置
 <pre>
-
-##mkfs##
-
-the primary skills are:
-* sudo mkfs.ext4 /dev/sda2
-* sudo mkfs.vfat /dev/sda4
-* ...
-
-
 Ubuntu 12.04默认是不允许root登录的，在登录窗口只能看到普通用户和访客登录。以普通身份
 登陆Ubuntu后我们需要做一些修改,普通用户登录后，修改系统配置文件需要切换到超级用户模式,
 在终端窗口里面输入: sudo  -s.然后输入普通用户登陆的密码，回车即可进入 root用户权限模式。
@@ -86,7 +82,14 @@ gnome classic界面更容易上手。
 首先我们需要安装gnome shell，sudo apt-get install gnome-session-fallback
 
 记得在登录框右上选择gnome（classic)
-
-
-
+</pre>
+##mkfs##
+<pre>
+<code>
+the primary skills are:
+sudo mkfs.ext4 /dev/sda2
+sudo mkfs.vfat /dev/sda4
+...
+</code>
+</pre>
 
