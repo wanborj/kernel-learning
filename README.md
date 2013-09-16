@@ -51,18 +51,42 @@ Disk identifier: 0xad250a1f
 Partition table entries are not in disk order
 <pre>
 
----
-
 ##mkfs##
-
-<pre>
-SEE ALSO
-fs(5),  badblocks(8),  fsck(8),  mkdosfs(8), mke2fs(8), mkfs.bfs(8), mkfs.ext2(8),
-mkfs.ext3(8), mkfs.ext4(8), mkfs.minix(8), mkfs.msdos(8),mkfs.vfat(8), mkfs.xfs(8), 
-mkfs.xiafs(8)
 
 the primary skills are:
 * sudo mkfs.ext4 /dev/sda2
 * sudo mkfs.vfat /dev/sda4
 * ...
-<pre>
+
+
+Ubuntu 12.04默认是不允许root登录的，在登录窗口只能看到普通用户和访客登录。以普通身份
+登陆Ubuntu后我们需要做一些修改,普通用户登录后，修改系统配置文件需要切换到超级用户模式,
+在终端窗口里面输入: sudo  -s.然后输入普通用户登陆的密码，回车即可进入 root用户权限模式。
+
+然后执行: vi /etc/lightdm/lightdm.conf.
+
+增加 greeter-show-manual-login=true  allow-guest=false  . 修改完的整个配置文件是
+
+[SeatDefaults]
+greeter-session=unity-greeter
+user-session=ubuntu
+greeter-show-manual-login=true #手工输入登陆系统的用户名和密码
+allow-guest=false   #不允许guest登录
+
+然后我们启动root帐号：
+sudo passwd root
+
+根据提示输入roott帐号密码。
+
+重启ubuntu，登录窗口会有“登录”选项，这时候我们就可以通过root登录了。
+
+Ubuntu 12.04默认使用unity界面，不同的用户体验，但是对于从上一个LTS版本过来的我来说，
+gnome classic界面更容易上手。
+
+首先我们需要安装gnome shell，sudo apt-get install gnome-session-fallback
+
+记得在登录框右上选择gnome（classic)
+
+
+
+
